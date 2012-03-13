@@ -1,0 +1,50 @@
+<!DOCYTPE html>
+<html>
+<head>
+	<title>Fetch.js Demo</title>
+	<script src="fetch.min.js"></script>
+	<!-- NOTE: JQuery is only used for progress bar, it is not a dependency for fetch. -->
+	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+	<script>
+		// this loader is just a dummy that simulates HTTP activity
+		Fetch.loader('foo',function( string, callback ) {
+			setTimeout( callback, Math.floor( Math.random() * 5000 ) );
+			return string;
+		});
+		
+		// This is where you'd want to launch your app
+		Fetch.on('done', function() {
+			$('body').html('<h1>Loading complete!</h1>');
+		});
+		
+		// Update the progress bar
+		Fetch.on('update', function ( percent ) {
+			$('#bar').width( percent * 300 );
+		});
+		
+		// Load some foo assets
+		window.onload = function () {
+			Fetch.load({
+				'foo': [
+					'It',
+					'Doesn\'t',
+					'Matter',
+					'What',
+					'These',
+					'Are'
+				]
+			});
+		};
+	</script>
+	<style>
+		#wrapper { width: 300px; height: 20px; border: 2px solid black; margin: auto;}
+		#bar { height: 20px; background-color: #c3c3c3; }
+		body { text-align: center; margin-top: 40px; }
+	</style>
+</head>
+<body>
+	<div id="wrapper">
+		<div id="bar"></div>
+	</div>
+</body>
+</html>
