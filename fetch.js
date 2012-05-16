@@ -7,6 +7,8 @@
 */
 
 var Fetch = (function () {
+	var version = '1.0';
+
 	// used to keep track of loading progress
 	var toLoad = 0;
 	var haveLoaded = 0;
@@ -96,6 +98,7 @@ var Fetch = (function () {
 	
 	// expose only public methods and vars
 	return {
+		'version': version,
 		'load': load,
 		'loader': loader,
 		'asset': asset,
