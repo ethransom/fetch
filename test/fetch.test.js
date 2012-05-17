@@ -1,4 +1,8 @@
 describe('Fetch', function(){
+	afterEach( function(){
+		Fetch.reset();
+	});
+
 	it('has a version number', function(){
 		expect( Fetch.version ).to.match(/[0-9]+\.[0-9]+/);
 	});
@@ -30,6 +34,12 @@ describe('Fetch', function(){
 	describe('#load', function(){
 		it('must be exposed', function(){
 			expect( Fetch.load ).to.be.an('function');
+		});
+	});
+
+	describe('#reset', function(){
+		it('must be exposed', function(){
+			expect( Fetch.reset ).to.be.an('function');
 		});
 	});
 });

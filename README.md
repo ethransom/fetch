@@ -53,6 +53,8 @@ You can be notified when all the assets are done loading and ready to be used.
 		// Launch your code here
 	});
 
+If you ever need it, calling `Fetch.reset` will reset Fetch to its original state.
+
 Check out `demo.html` for a complete example.
 
 ----------

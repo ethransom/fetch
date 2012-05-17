@@ -96,8 +96,20 @@ var Fetch = (function () {
 		return a;
 	};
 	
+	// resets Fetch to a pristine state
+	// useful for testing
+	var reset = function () {
+		toLoad = 0;
+		haveLoaded = 0;
+		assets = {};
+		subscribers = {};
+
+		updateLoader();
+	};
+
 	// expose only public methods and vars
 	return {
+		'reset': reset,
 		'version': version,
 		'load': load,
 		'loader': loader,
