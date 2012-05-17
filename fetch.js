@@ -57,7 +57,7 @@ var Fetch = (function () {
 	var load = function (list) {
 		// Triggers the loading of assets using pre-defined "loader" functions.
 		// See the README for example usage
-		for( type in list ) {
+		for( var type in list ) {
 			assets[type] = {};
 			if( loaders[type] ) {
 					// each asset type has many sub assets, load each one using loader function
