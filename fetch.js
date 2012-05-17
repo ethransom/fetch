@@ -74,6 +74,9 @@ var Fetch = (function () {
 	};
 	
 	var loader = function (name, loader) {
+		if( name && !loader )
+			return typeof loaders[name] !== "undefined";
+
 		// defines a loader
 		loaders[name] = loader;
 	};

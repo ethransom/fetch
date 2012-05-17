@@ -1,4 +1,10 @@
 describe('Fetch', function(){
+	beforeEach( function(){
+		Fetch.loader('timeout', function( string, callback ){
+			setTimeout( 0, callback );
+		});
+	});
+
 	afterEach( function(){
 		Fetch.reset();
 	});
@@ -16,6 +22,11 @@ describe('Fetch', function(){
 			Fetch.loader('test', function(string, callback){
 				callback();
 			});
+		});
+
+		it('checks for the existance of a loader when called with only a loader name', function(){
+			expect( Fetch.loader('timeout') ).to.be.ok();
+			expect( Fetch.loader('doesNotExist') ).to.not.be.ok();
 		});
 	});
 	
