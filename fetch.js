@@ -83,7 +83,7 @@ var Fetch = (function () {
 	
 	var asset = function ( type, name ) {
 		// Returns an asset. If the asset is not found, and there is a corresponding loader, it will load a "fresh" copy of the asset.
-		a = false;
+		var a = false;
 		try {
 			// attempt to fetch the image from cache
 			a = assets[type][name];
