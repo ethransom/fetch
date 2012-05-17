@@ -14,4 +14,22 @@ describe('Fetch', function(){
 			});
 		});
 	});
+	
+	describe('#on', function(){
+		it('must be exposed', function(){
+			expect( Fetch.on ).to.be.an('function');
+		});
+	});
+	
+	describe('#asset', function(){
+		it('must be exposed', function(){
+			expect( Fetch.asset ).to.be.an('function');
+		});
+	});
+	
+	describe('#load', function(){
+		it('must be exposed', function(){
+			expect( Fetch.load ).to.be.an('function');
+		});
+	});
 });
